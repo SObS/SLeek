@@ -1,0 +1,484 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6D955CD-1F55-459F-A7AD-01E591404989}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SLeek</RootNamespace>
+    <AssemblyName>SLeek</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationIcon>SLeek4.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="libsecondlife, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\dev\libsl\libsl-20080225\bin\libsecondlife.dll</HintPath>
+    </Reference>
+    <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\dev\Nini\Bin\DotNet\2.0\Release\Nini.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\ChatBufferItem.cs" />
+    <Compile Include="Core\Config\Config.cs" />
+    <Compile Include="Core\Config\ConfigManager.cs" />
+    <Compile Include="Core\Config\IPreferencePane.cs" />
+    <Compile Include="Core\ListItems\PreferencePaneListItem.cs" />
+    <Compile Include="Core\DebugLogMessage.cs" />
+    <Compile Include="Core\Config\ConfigAppliedEventArgs.cs" />
+    <Compile Include="Core\ListItems\FriendsListItem.cs" />
+    <Compile Include="Core\ImageCache.cs" />
+    <Compile Include="Core\ImageHelper.cs" />
+    <Compile Include="Core\Inventory\DateTreeSort.cs" />
+    <Compile Include="Core\Inventory\InventoryClipboard.cs" />
+    <Compile Include="Core\Inventory\InventoryTreeSorter.cs" />
+    <Compile Include="Core\Inventory\ITreeSortMethod.cs" />
+    <Compile Include="Core\Inventory\NameTreeSort.cs" />
+    <Compile Include="Core\ListItems\ObjectsListItem.cs" />
+    <Compile Include="Core\ListItems\RegionSearchResultItem.cs" />
+    <Compile Include="Core\SleekInstance.cs" />
+    <Compile Include="Core\StateManager.cs" />
+    <Compile Include="Core\Tabs\ISleekTabControl.cs" />
+    <Compile Include="Core\Tabs\SleekTab.cs" />
+    <Compile Include="Core\Tabs\SleekTabEvents.cs" />
+    <Compile Include="FormFlash.cs" />
+    <Compile Include="GUI\Consoles\FriendsConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\FriendsConsole.Designer.cs">
+      <DependentUpon>FriendsConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryImageConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryImageConsole.Designer.cs">
+      <DependentUpon>InventoryImageConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryItemConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryItemConsole.Designer.cs">
+      <DependentUpon>InventoryItemConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryNotecardConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryNotecardConsole.Designer.cs">
+      <DependentUpon>InventoryNotecardConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryObjectConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryObjectConsole.Designer.cs">
+      <DependentUpon>InventoryObjectConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryScriptConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryScriptConsole.Designer.cs">
+      <DependentUpon>InventoryScriptConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Preferences\PrefGeneralConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Preferences\PrefGeneralConsole.Designer.cs">
+      <DependentUpon>PrefGeneralConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Preferences\PrefTextConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Preferences\PrefTextConsole.Designer.cs">
+      <DependentUpon>PrefTextConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\DebugLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\DebugLog.Designer.cs">
+      <DependentUpon>DebugLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\DetachedTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\DetachedTab.Designer.cs">
+      <DependentUpon>DetachedTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Disconnected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Disconnected.Designer.cs">
+      <DependentUpon>Disconnected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\FindPeopleConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\FindPeopleConsole.Designer.cs">
+      <DependentUpon>FindPeopleConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\SearchConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\SearchConsole.Designer.cs">
+      <DependentUpon>SearchConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\Inventory\InventoryConsole.Designer.cs">
+      <DependentUpon>InventoryConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\MainConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\MainConsole.Designer.cs">
+      <DependentUpon>MainConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\TabsConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\TabsConsole.Designer.cs">
+      <DependentUpon>TabsConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Inventory\NotecardEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Inventory\NotecardEditor.Designer.cs">
+      <DependentUpon>NotecardEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Inventory\ScriptEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Inventory\ScriptEditor.Designer.cs">
+      <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Objects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Objects.Designer.cs">
+      <DependentUpon>Objects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Pay.Designer.cs">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Preferences.Designer.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Teleport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\Teleport.Designer.cs">
+      <DependentUpon>Teleport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Consoles\ChatConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\ChatConsole.Designer.cs">
+      <DependentUpon>ChatConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dialogs\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ChatTextManager.cs" />
+    <Compile Include="GUI\Consoles\IMTabWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\IMTabWindow.Designer.cs">
+      <DependentUpon>IMTabWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\IMTextManager.cs" />
+    <Compile Include="Core\ITextPrinter.cs" />
+    <Compile Include="GUI\Dialogs\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\RichTextBoxPrinter.cs" />
+    <Compile Include="GUI\Consoles\TPTabWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Consoles\TPTabWindow.Designer.cs">
+      <DependentUpon>TPTabWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Consoles\ChatConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ChatConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\FriendsConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FriendsConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Inventory\InventoryImageConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InventoryImageConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Inventory\InventoryItemConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InventoryItemConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Inventory\InventoryNotecardConsole.resx">
+      <DependentUpon>InventoryNotecardConsole.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Inventory\InventoryObjectConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InventoryObjectConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Inventory\InventoryScriptConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InventoryScriptConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Preferences\PrefGeneralConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrefGeneralConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Preferences\PrefTextConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrefTextConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\About.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\DebugLog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DebugLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\DetachedTab.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DetachedTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Disconnected.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Disconnected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\FindPeopleConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FindPeopleConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\SearchConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SearchConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\IMTabWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IMTabWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\Inventory\InventoryConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InventoryConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\MainConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Inventory\NotecardEditor.resx">
+      <DependentUpon>NotecardEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Inventory\ScriptEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\TabsConsole.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabsConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Objects.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Objects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Pay.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Preferences.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Profile.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dialogs\Teleport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Teleport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Consoles\TPTabWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TPTabWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-forward_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer_16.png" />
+    <None Include="Resources\applications_16.png" />
+    <None Include="Resources\delete_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SLNetworkComm\SLNetworkComm.csproj">
+      <Project>{8EE25E10-46BC-486E-87B5-5E49B879E0D1}</Project>
+      <Name>SLNetworkComm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-closed_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-open_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lsl_scripts_16.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-up_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\applications_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenOrbFaded_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenOrb_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SLeek4.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

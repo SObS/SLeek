@@ -1,0 +1,73 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EE25E10-46BC-486E-87B5-5E49B879E0D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SLNetworkComm</RootNamespace>
+    <AssemblyName>SLNetworkComm</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="libsecondlife, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\dev\libsl\libsl-20080225\bin\libsecondlife.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventArgs\AlertMessageEventArgs.cs" />
+    <Compile Include="EventArgs\ChatEventArgs.cs" />
+    <Compile Include="EventArgs\ChatSentEventArgs.cs" />
+    <Compile Include="EventArgs\ClientDisconnectEventArgs.cs" />
+    <Compile Include="EventArgs\ClientLoginEventArgs.cs" />
+    <Compile Include="EventArgs\InstantMessageEventArgs.cs" />
+    <Compile Include="EventArgs\InstantMessageSentEventArgs.cs" />
+    <Compile Include="EventArgs\MoneyBalanceEventArgs.cs" />
+    <Compile Include="EventArgs\OverrideEventArgs.cs" />
+    <Compile Include="EventArgs\TeleportingEventArgs.cs" />
+    <Compile Include="EventArgs\TeleportStatusEventArgs.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LoginOptions.cs" />
+    <Compile Include="SLNetCom\SLNetCom.cs" />
+    <Compile Include="SLNetCom\SLNetComEvents.cs" />
+    <Compile Include="StartLocationParser.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
