@@ -1,0 +1,41 @@
+SLeek
+By: Delta Czukor
+
+Since the interface seems pretty straightforward, I'm simply going to list what does and doesn't work in SLeek.
+
+What works:
+- Logging in!
+- Receiving and sending chat (whisper, say, shout) from agents and objects.
+- Receiving a list of nearby agents and objects.
+- Teleporting.
+- Sending and receiving IMs.
+- People search.
+- SLeek Scripting (runtime code compilation, can hook into SLeek/SLNetCom/libsecondlife).
+- Inventory support (not all item types supported yet).
+- Sending typing animation when typing.
+- Setting away/busy status.
+- Flying.
+- Autopilot (+ flying).
+- Profile viewing (basic).
+- Receiving teleport offers.
+- Debug log.
+- Region search.
+- Basic Friends functionality.
+- Offering teleports to friends.
+
+What doesn't work (or just isn't there yet):
+- Groups functionality.
+- Offline IMs
+- Too much other stuff. :P
+
+Shortcuts:
+- Enter/Return: Says the inputted chat text.
+- Ctrl+Enter: Shouts the inputted chat text.
+- Ctrl+Shift+Enter: Whispers the inputted chat text.
+- Ctrl+Alt+D: Toggles the Debug menu (next to Help, may take two or three tries).
+
+How to contact me:
+- Web: http://delta.slinked.net/
+- Email: deltaphc@gmail.com
+- SL: Delta Czukor
+- IRC: I'm usually in EFNet #secondlife, #libsl
